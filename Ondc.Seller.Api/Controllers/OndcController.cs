@@ -11,8 +11,8 @@ public class OndcController : ControllerBase
     {
     }
 
-    [HttpPost("/Search}")]
-    public async Task Search(string sellerId)
+    [HttpPost]
+    public async Task Search()
     {
         // drop the message in the service bus
         // send the ack back
