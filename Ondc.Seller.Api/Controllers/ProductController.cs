@@ -3,61 +3,59 @@ using Ondc.Seller.Api.Extensions;
 using Ondc.Seller.Api.Models.Response;
 using Ondc.Seller.Domain.Entities;
 using Ondc.Seller.Processor.Interfaces;
-using System.ComponentModel.DataAnnotations;
 
-namespace Ondc.Seller.Api.Controllers
+namespace Ondc.Seller.Api.Controllers;
+
+[ApiController]
+[Route("api/[controller]")]
+public class ProductController : ControllerBase
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class ProductController : ControllerBase
+    private readonly IProductProcessor _productProcessor;
+
+    public ProductController(IProductProcessor productProcessor, ILogger<ProductController> logger)
     {
-        private readonly IProductProcessor _productProcessor;
+        _productProcessor = productProcessor;
+    }
 
-        public ProductController(IProductProcessor productProcessor, ILogger<ProductController> logger)
+    [HttpGet("/Category/{sellerId}")]
+    public async Task<ItemsResponse> GetProductCategories(string sellerId)
+    {
+        var response = new ItemsResponse();
+        try
         {
-            _productProcessor = productProcessor;
+            response.Items =  await _productProcessor.GetProductCategoriesAsync(sellerId);
+            response.IsSuccess = true;
+        }
+        catch (OndcException ex)
+        {
+            response.Error = ex.ToError();
+        }
+        catch (Exception ex)
+        {
+            response.IsSuccess = false;
         }
 
-        [HttpGet("/Category/{sellerId}")]
-        public async Task<ItemsResponse> GetProductCategories(string sellerId)
-        {
-            var response = new ItemsResponse();
-            try
-            {
-                response.Items =  await _productProcessor.GetProductCategoriesAsync(sellerId);
-                response.IsSuccess = true;
-            }
-            catch (OndcException ex)
-            {
-                response.Error = ex.ToError();
-            }
-            catch (Exception ex)
-            {
-                response.IsSuccess = false;
-            }
+        return response;
+    }
 
-            return response;
+    [HttpPost()]
+    public async Task<ItemResponse> AddProduct([FromBody] Product product)
+    {
+        var response = new ItemResponse();
+        try
+        {
+            response.Item = await _productProcessor.AddProductAsync(product);
+            response.IsSuccess = true;
+        }
+        catch (OndcException ex)
+        {
+            response.Error = ex.ToError();
+        }
+        catch (Exception ex)
+        {
+            response.IsSuccess = false;
         }
 
-        [HttpPost()]
-        public async Task<ItemResponse> AddProduct([FromBody] Product product)
-        {
-            var response = new ItemResponse();
-            try
-            {
-                response.Item = await _productProcessor.AddProductAsync(product);
-                response.IsSuccess = true;
-            }
-            catch (OndcException ex)
-            {
-                response.Error = ex.ToError();
-            }
-            catch (Exception ex)
-            {
-                response.IsSuccess = false;
-            }
-
-            return response;
-        }
+        return response;
     }
 }
