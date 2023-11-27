@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Ondc.Seller.Domain\Ondc.Seller.Domain.csproj" />
+    <ProjectReference Include="..\Ondc.Seller.Domain\ItHelpDesk.Domain.csproj" />
   </ItemGroup>
 
 </Project>

@@ -2,6 +2,6 @@
 
 namespace Ondc.Seller.DataAccess.Interfaces;
 
-public interface IProductRepository : IRepository<Product>
+public interface IProductRepository : IRepository<Companies>
 {
 }

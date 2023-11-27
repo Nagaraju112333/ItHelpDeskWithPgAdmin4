@@ -1,8 +1,8 @@
 ﻿namespace Ondc.Seller.Domain.Entities;
 
-public class OndcException : Exception
+public class ItHelpDeskException : Exception
 {
-	public OndcException(string errorCode, string errorMessage)
+	public ItHelpDeskException(string errorCode, string errorMessage)
 	{
 		ErrorCode = errorCode;
 		ErrorMessage = errorMessage;

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Ondc.Seller.DataAccess.Entities;
@@ -11,9 +12,11 @@ using Ondc.Seller.DataAccess.Entities;
 namespace Ondc.Seller.Api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231126182550_ItHelpDeskFirstMigration")]
+    partial class ItHelpDeskFirstMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,27 +33,12 @@ namespace Ondc.Seller.Api.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Address")
+                    b.Property<int?>("CategoryId")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("integer");
 
-                    b.Property<string>("BusinessEmail")
-                        .IsRequired()
+                    b.Property<string>("CoverImageName")
                         .HasColumnType("text");
-
-                    b.Property<string>("City")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("ComapnyName")
-                        .HasColumnType("text");
-
-                    b.Property<string>("CompanyLogoPath")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Country")
-                        .HasMaxLength(1000)
-                        .HasColumnType("character varying(1000)");
 
                     b.Property<DateTime?>("CreatedAt")
                         .ValueGeneratedOnAdd()
@@ -61,16 +49,47 @@ namespace Ondc.Seller.Api.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("character varying(256)");
 
-                    b.Property<string>("PhoneNumber")
+                    b.Property<string>("Description")
+                        .HasMaxLength(1000)
+                        .HasColumnType("character varying(1000)");
+
+                    b.Property<double?>("Discount")
+                        .HasColumnType("double precision");
+
+                    b.Property<string>("ImagePath")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ImageSasUri")
+                        .HasColumnType("text");
+
+                    b.Property<bool?>("IsOnline")
+                        .IsRequired()
+                        .HasColumnType("boolean");
+
+                    b.Property<double?>("LowStockThresholdValue")
+                        .HasColumnType("double precision");
+
+                    b.Property<double?>("Mrp")
+                        .IsRequired()
+                        .HasColumnType("double precision");
+
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(500)
                         .HasColumnType("character varying(500)");
 
-                    b.Property<string>("PinCode")
+                    b.Property<double?>("NoOfUnit")
                         .IsRequired()
+                        .HasColumnType("double precision");
+
+                    b.Property<string>("ProductId")
                         .HasColumnType("text");
 
-                    b.Property<string>("State")
+                    b.Property<double?>("SalesPrice")
+                        .IsRequired()
+                        .HasColumnType("double precision");
+
+                    b.Property<string>("SellerId")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -91,7 +110,7 @@ namespace Ondc.Seller.Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BusinessEmail", "PhoneNumber")
+                    b.HasIndex("Name")
                         .IsUnique();
 
                     b.ToTable("it_help_desk_companies");

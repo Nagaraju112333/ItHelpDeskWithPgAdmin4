@@ -4,7 +4,7 @@ using Ondc.Seller.Domain.Entities;
 
 namespace Ondc.Seller.DataAccess.Repositories;
 
-public class ProductRepository : RepositoryBase<Product>, IProductRepository
+public class ProductRepository : RepositoryBase<Companies>, IProductRepository
 {
     public ProductRepository(
     AppDbContext dbContext)

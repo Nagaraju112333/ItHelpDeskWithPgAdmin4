@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Ondc.Seller.DataAccess.Entities;
@@ -11,9 +12,11 @@ using Ondc.Seller.DataAccess.Entities;
 namespace Ondc.Seller.Api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231127092948_ItHelpDeskFirstMigration11")]
+    partial class ItHelpDeskFirstMigration11
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -40,9 +43,6 @@ namespace Ondc.Seller.Api.Migrations
 
                     b.Property<string>("City")
                         .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("ComapnyName")
                         .HasColumnType("text");
 
                     b.Property<string>("CompanyLogoPath")

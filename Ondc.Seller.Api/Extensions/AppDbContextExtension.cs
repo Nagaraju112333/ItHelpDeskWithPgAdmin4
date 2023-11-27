@@ -34,7 +34,7 @@ namespace Ondc.Seller.Api.Extensions
             });
             services.AddSingleton((IServiceProvider _) => new ApplicationDbContextOptions
             {
-                TablePrefix = "ondc",
+                TablePrefix = "ItHelpDesk",
                 EntitiesAssembly = entitiesAssembly2
             });
             return services;

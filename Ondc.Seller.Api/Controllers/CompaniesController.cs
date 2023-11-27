@@ -2,19 +2,19 @@ using Microsoft.AspNetCore.Mvc;
 using Ondc.Seller.Api.Extensions;
 using Ondc.Seller.Api.Models.Response;
 using Ondc.Seller.Domain.Entities;
-using Ondc.Seller.Processor.Interfaces;
+
 
 namespace Ondc.Seller.Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class ProductController : ControllerBase
+public class CompaniesController : ControllerBase
 {
-    private readonly IProductProcessor _productProcessor;
+  /*  private readonly ICompaniesProcessor _productProcessor;*/
 
-    public ProductController(IProductProcessor productProcessor, ILogger<ProductController> logger)
+    public CompaniesController( ILogger<CompaniesController> logger)
     {
-        _productProcessor = productProcessor;
+        //_productProcessor = productProcessor;
     }
 
     [HttpGet("/Category/{sellerId}")]
@@ -23,10 +23,10 @@ public class ProductController : ControllerBase
         var response = new ItemsResponse();
         try
         {
-            response.Items =  await _productProcessor.GetProductCategoriesAsync(sellerId);
+          //  response.Items =  await _productProcessor.GetProductCategoriesAsync(sellerId);
             response.IsSuccess = true;
         }
-        catch (OndcException ex)
+        catch (ItHelpDeskException ex)
         {
             response.Error = ex.ToError();
         }
@@ -39,15 +39,15 @@ public class ProductController : ControllerBase
     }
 
     [HttpPost()]
-    public async Task<ItemResponse> AddProduct([FromBody] Product product)
+    public async Task<ItemResponse> AddProduct([FromBody] Companies product)
     {
         var response = new ItemResponse();
         try
         {
-            response.Item = await _productProcessor.AddProductAsync(product);
+           // response.Item = await _productProcessor.AddProductAsync(product);
             response.IsSuccess = true;
         }
-        catch (OndcException ex)
+        catch (ItHelpDeskException ex)
         {
             response.Error = ex.ToError();
         }

@@ -5,7 +5,7 @@ namespace Ondc.Seller.Api.Extensions
 {
     public static class ResponseExtensions
     {
-        public static Error ToError(this OndcException ex)
+        public static Error ToError(this ItHelpDeskException ex)
         {
             if (ex != null)
             {

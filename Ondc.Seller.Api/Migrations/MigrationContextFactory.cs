@@ -24,7 +24,7 @@ public class MigrationContextFactory : IDesignTimeDbContextFactory<AppDbContext>
         var configuration = configurationBuilder.Build();
 
         var builder = new DbContextOptionsBuilder<AppDbContext>();
-        var connectionString = configuration.GetValue<string>("Ondc:ConnectionStrings:AppConnectionString");
+        var connectionString = configuration.GetValue<string>("ItHelpDesk:ConnectionStrings:AppConnectionString");
         builder.UseNpgsql(connectionString, optionsBuilder =>
         {
             optionsBuilder.MigrationsAssembly(typeof(Program).Assembly.GetName().Name);
@@ -33,8 +33,8 @@ public class MigrationContextFactory : IDesignTimeDbContextFactory<AppDbContext>
         return new AppDbContext(
             new ApplicationDbContextOptions
             {
-                TablePrefix = "ondc",
-                EntitiesAssembly = Assembly.GetAssembly(typeof(ProductEntityConfiguration))
+                TablePrefix = "ItHelpDesk",
+                EntitiesAssembly = Assembly.GetAssembly(typeof(CompaniesEntityConfiguration))
             },
             builder.Options
         );

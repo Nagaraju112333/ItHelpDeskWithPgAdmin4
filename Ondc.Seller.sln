@@ -5,13 +5,13 @@ VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Host", "Host", "{6133C4AA-60FC-4C30-B1AC-DAAA2A815DB5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ondc.Seller.Api", "Ondc.Seller.Api\Ondc.Seller.Api.csproj", "{8E726CA8-CD46-42ED-8DC9-627C0A089C27}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ItHelpDesk.Api", "Ondc.Seller.Api\ItHelpDesk.Api.csproj", "{8E726CA8-CD46-42ED-8DC9-627C0A089C27}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ondc.Seller.DataAccess", "Ondc.Seller.DataAccess\Ondc.Seller.DataAccess.csproj", "{1DC6763C-16C8-4173-B02B-4F51ADAF3DDE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ItHelpDesk.DataAccess", "Ondc.Seller.DataAccess\ItHelpDesk.DataAccess.csproj", "{1DC6763C-16C8-4173-B02B-4F51ADAF3DDE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ondc.Seller.Domain", "Ondc.Seller.Domain\Ondc.Seller.Domain.csproj", "{04BC18A3-A2CA-46B7-9B13-5B5FF193D30A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ItHelpDesk.Domain", "Ondc.Seller.Domain\ItHelpDesk.Domain.csproj", "{04BC18A3-A2CA-46B7-9B13-5B5FF193D30A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ondc.Seller.Integration", "Ondc.Seller.Integration\Ondc.Seller.Integration.csproj", "{E724F92F-450D-4C2C-B8C3-C9C13BAFE4C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ItHelpDesk.Integration", "Ondc.Seller.Integration\ItHelpDesk.Integration.csproj", "{E724F92F-450D-4C2C-B8C3-C9C13BAFE4C8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ondc.Seller.Console", "Ondc.Seller.Console\Ondc.Seller.Console.csproj", "{6DA3946C-DC16-4970-BFF6-72FF73E2937C}"
 EndProject
@@ -21,11 +21,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit", "Unit", "{852592E5-1
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration", "{CDDB6B2C-BA9F-4414-BE43-0B9126F9F846}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ondc.Seller.Notification", "Ondc.Seller.Notification\Ondc.Seller.Notification.csproj", "{FDF465D4-93AD-4BCF-8CEB-CD6482DAF2C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ItHelpDesk.Notification", "Ondc.Seller.Notification\ItHelpDesk.Notification.csproj", "{FDF465D4-93AD-4BCF-8CEB-CD6482DAF2C0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ondc.Seller.Processor", "Ondc.Seller.Processor\Ondc.Seller.Processor.csproj", "{810E783A-CFEA-48CD-A436-4918F83724C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ItHelpDesk.Processor", "Ondc.Seller.Processor\ItHelpDesk.Processor.csproj", "{810E783A-CFEA-48CD-A436-4918F83724C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ondc.Seller.Functions", "Ondc.Seller.Functions\Ondc.Seller.Functions.csproj", "{8036D80E-8D19-47FD-8788-00EB622B879B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ondc.Seller.Functions", "Ondc.Seller.Functions\Ondc.Seller.Functions.csproj", "{8036D80E-8D19-47FD-8788-00EB622B879B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
